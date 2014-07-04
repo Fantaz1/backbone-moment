@@ -29,7 +29,9 @@ Backbone.MomentModel = Backbone.Model.extend({
 
   hasTime: function(key, options) {
     var name, parse;
-    options = _.extend(this.defaultMomentOptions, options);
+
+    options = _.extend(_.clone(this.defaultTimeOptions), options || {});
+
     name = options.name ? options.name : camelize(key);
     parse = (function(_this) {
       return function() {
