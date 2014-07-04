@@ -42,6 +42,10 @@ Backbone.MomentModel = Backbone.Model.extend({
             _this[name] = _this._defaultTimeValue(options["default"]);
           }
         }
+
+        if (options.callback){
+          options.callback(_this[name]);
+        }
       };
     })(this);
 
