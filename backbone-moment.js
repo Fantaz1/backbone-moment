@@ -17,7 +17,7 @@ Backbone.MomentModel = Backbone.Model.extend({
 
   _defaultTimeValue: function(value) {
     if (value !== null) {
-      return this._timeParse(value);
+      return this._timeParser(value);
     } else {
       return moment();
     }
