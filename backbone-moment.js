@@ -37,6 +37,11 @@ Backbone.MomentModel = Backbone.Model.extend({
       return function() {
         if (_this.has(key)) {
           _this[name] = _this._timeParser(_this.get(key), options.format);
+
+          if (!_this[name].isValid()) {
+            _this[name] = null;
+            _this.unset(key, { silent: true });
+          }
         } else {
           if (options.init === true) {
             _this[name] = _this._defaultTimeValue(options["default"]);
